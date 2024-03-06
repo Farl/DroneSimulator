@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1728811102215080083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.47564757, y: 0.447, z: -2.4718862}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.58457, y: 0.58457, z: 0.58457}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2272815467033567103}
@@ -262,7 +262,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 8af90b280f0801642b84c45a6749aa5d, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -279,7 +279,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794185412754934353}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &1860323834356183921
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d08b1db3de7284a8becec7a5a5a0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDist: 0.65
+  groundDist: 0.4
   maxPower: 4
   propeller: {fileID: 4188238639221183968}
   maxpropRotSpeed: 300
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d08b1db3de7284a8becec7a5a5a0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDist: 0.65
+  groundDist: 0.4
   maxPower: 4
   propeller: {fileID: 4490262438058586484}
   maxpropRotSpeed: 300
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d08b1db3de7284a8becec7a5a5a0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDist: 0.65
+  groundDist: 0.4
   maxPower: 4
   propeller: {fileID: 2341078199744278019}
   maxpropRotSpeed: 300
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d08b1db3de7284a8becec7a5a5a0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDist: 0.65
+  groundDist: 0.4
   maxPower: 4
   propeller: {fileID: 7184773495751571908}
   maxpropRotSpeed: 300
