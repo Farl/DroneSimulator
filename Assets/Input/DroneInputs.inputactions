@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Switch",
+                    "type": "Value",
+                    "id": "aad2d8e2-fca9-4aed-b524-9df730287076",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -275,6 +284,17 @@
                     "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f1ab631a-1c20-4127-9f2a-355bd30ab38e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -284,7 +304,7 @@
             "actions": [
                 {
                     "name": "RightLeftRotation",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "a620fb08-11b8-435f-8afe-d8e32148c591",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -293,7 +313,7 @@
                 },
                 {
                     "name": "UpDownRotation",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "a961a7eb-4014-45f0-9667-13c629e4f0e5",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -302,12 +322,21 @@
                 },
                 {
                     "name": "Zoom",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "9580bd3e-ad19-4ffd-884d-cb237b7bc33f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Switch",
+                    "type": "Value",
+                    "id": "7c2ddba6-f1c8-43eb-b1ac-9183c319f46f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -409,6 +438,17 @@
                     "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7188a166-764c-4990-affa-b1e77b9240f0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
