@@ -4,7 +4,6 @@ using UnityEngine;
 using System.Linq;
 namespace Drone.Scripts.GamePlay
 {
-    [RequireComponent(typeof(InputManager))]
     public class DroneController : RigidBodyManager
     {
         #region Variables
@@ -29,7 +28,7 @@ namespace Drone.Scripts.GamePlay
         // Start is called before the first frame update
         void Start()
         {
-            input = GetComponent<InputManager>();
+            input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
             _engines = GetComponentsInChildren<IEngine>().ToList();
         }
 

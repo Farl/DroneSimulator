@@ -35,6 +35,8 @@ namespace Drone.Scripts.GamePlay
         public float Zoom => _zoom;
         public ActionMap ActionMap => _actionMap;
 
+        public Action<ActionMap> OnActionMapSwitch;
+
         #endregion
 
         #region Main Methods
@@ -54,6 +56,7 @@ namespace Drone.Scripts.GamePlay
                     _actionMap = _actionMap == ActionMap.Drone ? ActionMap.Camera : ActionMap.Drone;
                     _input.currentActionMap = _input.actions.FindActionMap(_actionMap.ToString());
                     timer = 0;
+                    OnActionMapSwitch?.Invoke(_actionMap);
                     Debug.Log(_actionMap);
                 }
             }

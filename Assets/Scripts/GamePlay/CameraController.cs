@@ -1,11 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Drone.Scripts.GamePlay
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private InputManager _inputManager;
+        private InputManager _inputManager;
+        
         [Header("Rotation Angels")]
         [SerializeField] private float minHorizontalAngel;
         [SerializeField] private float maxHorizontalAngel;
@@ -14,6 +16,19 @@ namespace Drone.Scripts.GamePlay
         [Header("Rotation Speed")]
         [SerializeField] private float horizontalSpeed;
         [SerializeField] private float verticalSpeed;
+
+        private void Start()
+        {
+            _inputManager = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
+
+            _inputManager.OnActionMapSwitch += map =>
+            {
+                if (map == ActionMap.Drone)
+                {
+                    transform.DORotate(Vector3.zero, 1f);
+                }
+            };
+        }
 
         private void Update()
         {
