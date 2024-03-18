@@ -154,6 +154,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "3874de3e-f645-4a32-a243-b5c1cee82995",
+                    "path": "<ViveController>{LeftHand}/trackpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cyclic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Arrows",
                     "id": "ca947cc2-4a58-48bc-a726-c022a9f9ad20",
                     "path": "1DAxis",
@@ -218,6 +229,17 @@
                     "action": "Pedals",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e1886304-04c3-4fd5-804e-cd6c786c31ec",
+                    "path": "<ViveController>{RightHand}/trackpad/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pedals",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "Arrows",
@@ -287,6 +309,17 @@
                 },
                 {
                     "name": "",
+                    "id": "747fab90-0562-4515-95f9-3d48fd1f6abc",
+                    "path": "<ViveController>{RightHand}/trackpad/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f1ab631a-1c20-4127-9f2a-355bd30ab38e",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -306,6 +339,17 @@
                     "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "545abfff-bb9b-4a4f-b2a4-3b831135f9d9",
+                    "path": "<ViveController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -317,7 +361,7 @@
                     "name": "RightLeftRotation",
                     "type": "PassThrough",
                     "id": "a620fb08-11b8-435f-8afe-d8e32148c591",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -326,7 +370,7 @@
                     "name": "UpDownRotation",
                     "type": "PassThrough",
                     "id": "a961a7eb-4014-45f0-9667-13c629e4f0e5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -335,7 +379,7 @@
                     "name": "Zoom",
                     "type": "PassThrough",
                     "id": "9580bd3e-ad19-4ffd-884d-cb237b7bc33f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -418,6 +462,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "6d744287-40a7-45db-9aa1-9e56c428617a",
+                    "path": "<ViveController>{LeftHand}/trackpad/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightLeftRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "WS",
                     "id": "cf48c228-fad9-42a7-baa6-4e594e12d453",
                     "path": "1DAxis",
@@ -482,6 +537,17 @@
                     "action": "UpDownRotation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "1a538ee2-3e74-4b9c-9256-3d20e5057fa0",
+                    "path": "<ViveController>{LeftHand}/trackpad/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpDownRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "Arrows",
@@ -551,6 +617,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9db12b2d-a07b-4ebd-aa0a-c3f8d7a5869e",
+                    "path": "<ViveController>{RightHand}/trackpad/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7188a166-764c-4990-affa-b1e77b9240f0",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -564,6 +641,17 @@
                     "name": "",
                     "id": "063c28b3-e254-416c-a742-4db82e140155",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb5b20b2-d8c9-4691-8648-ed85d957ec5e",
+                    "path": "<ViveController>{RightHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

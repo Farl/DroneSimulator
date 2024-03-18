@@ -45,13 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24555bbc125045fa91918e2c1a1db8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputManager: {fileID: 0}
   minHorizontalAngel: -90
   maxHorizontalAngel: 90
   minVerticalAngel: -5
   maxVerticalAngel: 90
   horizontalSpeed: 50
   verticalSpeed: 50
+  minFOV: 20
+  maxFOV: 60
+  zoomSpeed: 1
+  _camera: {fileID: 2255443483526705373}
 --- !u!1 &4153336787583771418
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,12 @@ namespace Drone.Scripts.GamePlay
         [Header("Rotation Speed")]
         [SerializeField] private float horizontalSpeed;
         [SerializeField] private float verticalSpeed;
+        [Header("Zoom")]
+        [SerializeField] private float minFOV;
+        [SerializeField] private float maxFOV;
+        [SerializeField] private float zoomSpeed;
+
+        [SerializeField] private Camera _camera;
 
         private void Start()
         {
@@ -25,7 +31,7 @@ namespace Drone.Scripts.GamePlay
             {
                 if (map == ActionMap.Drone)
                 {
-                    transform.DORotate(Vector3.zero, 1f);
+                    transform.DOLocalRotate(Vector3.zero, 1f);
                 }
             };
         }
@@ -78,7 +84,13 @@ namespace Drone.Scripts.GamePlay
 
         private void UpdateZoom()
         {
-            
+            var fov = _camera.fieldOfView - (zoomSpeed * _inputManager.Zoom * Time.deltaTime);
+
+            if(fov < minFOV)
+            { fov = minFOV; }
+            else if(fov > maxFOV) 
+            {  fov = maxFOV; }
+            _camera.fieldOfView = fov;
         }
 
         
