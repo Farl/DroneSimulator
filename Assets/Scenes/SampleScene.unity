@@ -6888,7 +6888,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6935569294966401120, guid: aca537b1c249dbc41a43e1a18c71cecd, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: TutorialUI
       objectReference: {fileID: 0}
     - target: {fileID: 8185011403932108057, guid: aca537b1c249dbc41a43e1a18c71cecd, type: 3}
       propertyPath: m_Pivot.x
@@ -6985,6 +6985,10 @@ PrefabInstance:
     - target: {fileID: 8671866088985765788, guid: aca537b1c249dbc41a43e1a18c71cecd, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785998030660638853, guid: aca537b1c249dbc41a43e1a18c71cecd, type: 3}
+      propertyPath: configName
+      value: TutorialConfig
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
