@@ -42,7 +42,7 @@ namespace Drone.Scripts.GamePlay
 
         #region Main Methods
 
-        private void Start()
+        private void Awake()
         {
             _input = GetComponent<PlayerInput>();
         }

@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   Phrases:
-  - Follow green objects!
-  - Hello
-  - 
-  - 
+  - Find reach object and rech it
+  - Find next point. Reached 1/7
+  - Find next point. Reached 2/7
+  - Find next point. Reached 3/7
+  - Find next point. Reached 4/7
+  - Find next point. Reached 5/7
+  - Find next point. Reached 6/7
+  - You reached last point. Ground at the landing spot.
