@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
+    public Action TutorialEnded;
     [SerializeField] private TMP_Text tutorialText;
     [SerializeField] private Image executingMark;
     [SerializeField] private Image executedMark;
+    [SerializeField] private GameObject finalText;
     [SerializeField] private string configName;
 
     private TutorialConfig _config;
@@ -30,6 +32,14 @@ public class TutorialManager : MonoBehaviour
             executedMark.gameObject.SetActive(true);
 
             PlayTextChangeAnimation(1);
+        }
+        else
+        {
+            tutorialText.gameObject.SetActive(false);
+            executedMark.gameObject.SetActive(false);
+            executingMark.gameObject.SetActive(false);
+            finalText.SetActive(true);
+            TutorialEnded?.Invoke();
         }
     }
 

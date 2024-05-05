@@ -1,18 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.XR.Interaction.Toolkit;
+
 namespace Drone.Scripts.GamePlay
 {
     public class DroneController : RigidBodyManager
     {
         #region Variables
 
+        public Action<bool> OnDroneTurnOn;
+
         [Header("Control Property")] 
         [SerializeField] private float minMaxPitch = 30;
         [SerializeField] private float minMaxRoll = 30;
         [SerializeField] private float yawPower = 4;
         [SerializeField] private float lerpSpeed = 2;
+
+        private AudioController _audioController;
         private InputManager input;
         private List<IEngine> _engines = new List<IEngine>();
 
@@ -30,6 +37,19 @@ namespace Drone.Scripts.GamePlay
         {
             input = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
             _engines = GetComponentsInChildren<IEngine>().ToList();
+            _audioController = GetComponent<AudioController>();
+        }
+
+        private void OnEnable()
+        {
+            _audioController.enabled = true;
+            OnDroneTurnOn?.Invoke(true);
+        }
+
+        private void OnDisable()
+        {
+            _audioController.enabled = false;
+            OnDroneTurnOn?.Invoke(false);
         }
 
         #endregion

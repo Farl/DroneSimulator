@@ -13,6 +13,18 @@ namespace Drone.Scripts.GamePlay
     public class InputManager : MonoBehaviour
     {
         #region Variables
+        
+        public ActionMap ActionMap => _actionMap;
+
+        public Action<ActionMap> OnActionMapSwitch;
+
+        public Vector2 Cyclic => _cyclic;
+        public float Pedals => _pedals;
+        public float Throttle => _throttle;
+        public float Switch => _switch;
+        public float RightLeftRotation => _rightLeftRotation;
+        public float UpDownRotation => _upDownRotation;
+        public float Zoom => _zoom;
 
         private Vector2 _cyclic;
         private float _pedals;
@@ -25,17 +37,6 @@ namespace Drone.Scripts.GamePlay
         private PlayerInput _input;
         private ActionMap _actionMap;
         private float timer;
-
-        public Vector2 Cyclic => _cyclic;
-        public float Pedals => _pedals;
-        public float Throttle => _throttle;
-        public float Switch => _switch;
-        public float RightLeftRotation => _rightLeftRotation;
-        public float UpDownRotation => _upDownRotation;
-        public float Zoom => _zoom;
-        public ActionMap ActionMap => _actionMap;
-
-        public Action<ActionMap> OnActionMapSwitch;
 
         #endregion
 
@@ -57,7 +58,8 @@ namespace Drone.Scripts.GamePlay
                     _input.currentActionMap = _input.actions.FindActionMap(_actionMap.ToString());
                     timer = 0;
                     OnActionMapSwitch?.Invoke(_actionMap);
-                    Debug.Log(_actionMap);
+                    
+                    
                 }
             }
         }

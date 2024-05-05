@@ -6,6 +6,7 @@ using UnityEngine;
 public class PathController : MonoBehaviour
 {
     public Action OnPathEnded;
+    public Action OnPointReached;
 
     [SerializeField] List<PathPointScript> pathPointsList = new List<PathPointScript>();
 
@@ -24,6 +25,8 @@ public class PathController : MonoBehaviour
 
     private void GetNextPoint()
     {
+        OnPointReached?.Invoke();
+        
         pathPointsList[counter].gameObject.SetActive(false);
         counter++;
         if(counter < pathPointsList.Count)
