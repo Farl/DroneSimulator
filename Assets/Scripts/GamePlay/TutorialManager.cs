@@ -1,22 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text tutorialText;
-    [SerializeField] string configName;
+    [SerializeField] private TMP_Text tutorialText;
+    [SerializeField] private Image executingMark;
+    [SerializeField] private Image executedMark;
+    [SerializeField] private string configName;
 
-    TutorialConfig config;
+    private TutorialConfig _config;
+    private int _current = 0;
     
 
     void Start()
     {
-        config = Resources.Load<TutorialConfig>($"Configs/{configName}");
+        _config = Resources.Load<TutorialConfig>($"Configs/{configName}");
 
-        tutorialText.text = config.Phrases[0];
+        tutorialText.text = _config.Phrases[_current];
     }
 
-    
+    public void GoNext()
+    {
+        if (_current < _config.Phrases.Length - 1)
+        {
+            executingMark.gameObject.SetActive(false);
+            executedMark.gameObject.SetActive(true);
+
+            PlayTextChangeAnimation(1);
+        }
+    }
+
+    private void PlayTextChangeAnimation(float duration)
+    {
+        var seq = DOTween.Sequence();
+
+        seq.Append(executingMark.material.DOFade(0, duration));
+        seq.Join(executedMark.material.DOFade(0, duration));
+        seq.Join(tutorialText.DOFade(0, duration)
+            .OnComplete(() =>
+            {
+                tutorialText.text = _config.Phrases[++_current];
+                executedMark.gameObject.SetActive(false);
+                executingMark.gameObject.SetActive(true);
+            }));
+        seq.Append(executingMark.material.DOFade(1, duration));
+        seq.Join(executedMark.material.DOFade(1, duration));
+        seq.Join(tutorialText.DOFade(1, duration));
+    }
 }

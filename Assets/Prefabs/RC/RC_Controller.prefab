@@ -1223,6 +1223,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3640606926621025952, guid: 8089ea9408179654482a264e6a868374, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599078931228913050, guid: 8089ea9408179654482a264e6a868374, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 220086ecd0d7b914aa4ecdb089b071b1, type: 3}
+    - target: {fileID: 7599078931228913050, guid: 8089ea9408179654482a264e6a868374, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599078931228913050, guid: 8089ea9408179654482a264e6a868374, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599078931228913050, guid: 8089ea9408179654482a264e6a868374, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8257503465081818779, guid: 8089ea9408179654482a264e6a868374, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.07
