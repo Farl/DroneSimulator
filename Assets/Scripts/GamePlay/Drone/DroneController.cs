@@ -12,6 +12,8 @@ namespace Drone.Scripts.GamePlay
         #region Variables
 
         public Action<bool> OnDroneTurnOn;
+        public bool hasTargetHeight;
+        [SerializeField]private int targetHeight;
 
         [Header("Control Property")] 
         [SerializeField] private float minMaxPitch = 30;
@@ -50,6 +52,11 @@ namespace Drone.Scripts.GamePlay
         {
             _audioController.enabled = false;
             OnDroneTurnOn?.Invoke(false);
+        }
+
+        private void Update()
+        {
+            
         }
 
         #endregion

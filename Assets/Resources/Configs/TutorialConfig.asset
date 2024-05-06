@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   Phrases:
-  - Find reach object and rech it
+  - Go up to the height 30 meters
+  - Find green object and rech it
   - Find next point. Reached 1/7
   - Find next point. Reached 2/7
   - Find next point. Reached 3/7
