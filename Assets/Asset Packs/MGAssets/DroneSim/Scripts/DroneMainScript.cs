@@ -5,6 +5,8 @@ public class DroneMainScript : MonoBehaviour
 {
     public static DroneMainScript current;
 
+    public InputManager InputManager;
+
     public bool cursorStartLocked = false;
 
     [Space]
@@ -16,7 +18,7 @@ public class DroneMainScript : MonoBehaviour
     ////
     [Space]
     [Header("General Flight Settings")]
-    public ControlType mode = ControlType.Arcade;
+    public ControlType mode = ControlType.FlyByWire;
     public enum ControlType { Manual = 0, FlyByWire = 1, Arcade = 2 };
 
     [Space]
@@ -91,78 +93,16 @@ public class DroneMainScript : MonoBehaviour
     [Header("Input Settings")]
     public bool useKeyboard = true;
     public KeyCode toogleCursorKey = KeyCode.Tab, recoverKey = KeyCode.Space, modeKey = KeyCode.Backspace, cameraKey = KeyCode.C;
-
-
-    public float pitchKeyFactor = 1f;
-    public KeyCode pitchDown = KeyCode.W, pitchUp = KeyCode.S;
-
-    public float rollKeyFactor = 1f;
-    public KeyCode rollLeft = KeyCode.A, rollRight = KeyCode.D;
-
-    public float yawKeyFactor = 1f;
-    public KeyCode yawLeft = KeyCode.Q, yawRight = KeyCode.E;
-
-    public float throttleKeyFactor = 1f;
-    public KeyCode throttleUp =  KeyCode.R, throttleDown =  KeyCode.F;
-
-    public float thrustForwardKeyFactor = 1f;
-    public KeyCode thrustForward = KeyCode.None, thrustBackward = KeyCode.None; //KeyCode.Keypad8, KeyCode.Keypad2
-
-    public float thrustLateralKeyFactor = 1f;
-    public KeyCode thrustLeft = KeyCode.None, thrustRight = KeyCode.None; // KeyCode.Keypad4, KeyCode.Keypad6
-
-
-
-    [Space]
-    public bool useMouse = true;
-
-    public float pitchMouseFactor = 1f;
-    public string pitchMouse = "Mouse Y";
-
-    public float rollMouseFactor = 1f;
-    public string rollMouse = "Mouse X";
-
-    public float yawMouseFactor = 1f;
-    public string yawMouse = "";    //"Mouse X"
-
-    public float throttleMouseFactor = 1f;
-    public string throttleMouse = ""; //"Mouse ScrollWheel"
-
-    public float thrustForwardMouseFactor = 1f;
-    public string thrustForwardMouse = ""; //"Mouse Y"
-
-    public float thrustLateralMouseFactor = 1f;
-    public string thrustLateralMouse = ""; //Mouse X"
-
-
+    
     [Space]
     public bool useMobile = true;
     [Tooltip("Show Mobile controls even in other platforms")]public bool forceMobile = false;
-    public float pitchMobileFactor = 1f, rollMobileFactor = 1f, yawMobileFactor = 1f, throttleMobileFactor = 1f, thrustForwardMobileFactor = 1f, thrustLateralMobileFactor = 1f;
+    
 
 
     [Space]
     public bool useJoystick = true;
-
     public KeyCode recoverJoystick = KeyCode.Joystick1Button1, modeJoystick = KeyCode.Joystick1Button2, cameraJoystick = KeyCode.Joystick1Button3;
-
-    public float pitchAxisFactor = 1f;
-    public string pitchAxis = "Vertical";
-
-    public float rollAxisFactor = 1f;
-    public string rollAxis = "Horizontal";
-
-    public float yawAxisFactor = 1f;
-    public string yawAxis = ""; //"Yaw"
-
-    public float throttleAxisFactor = 1f;
-    public string throttleAxis = ""; //"Throttle"
-
-    public float thrustForwardAxisFactor = 1f;
-    public string thrustForwardAxis = ""; //"Vertical"
-
-    public float thrustLateralAxisFactor = 1f;
-    public string thrustLateralAxis = ""; //"Horizontal"
     ////
 
 
@@ -495,67 +435,12 @@ public class DroneMainScript : MonoBehaviour
 
 
         //////////////////////// Read all INPUT
+        /// 
 
-        inputTorque = new Vector3
-            (
-            (useKeyboard ? pitchKeyFactor * ((Input.GetKey(pitchDown) ? 1 : 0) - (Input.GetKey(pitchUp) ? 1 : 0)) : 0 ) +
-            (useJoystick && pitchAxis != "" ? pitchAxisFactor * Input.GetAxis(pitchAxis)  : 0) +
-            ((useMouse && Cursor.lockState == CursorLockMode.Locked && pitchMouse != "") ? pitchMouseFactor * Input.GetAxis(pitchMouse) : 0) +
-            (useMobile ? pitchMobileFactor * DroneInputMobile.pitchInput : 0)
-            ,
-            (useKeyboard ? yawKeyFactor * ((Input.GetKey(yawRight) ? 1 : 0) - (Input.GetKey(yawLeft) ? 1 : 0)) : 0) +
-            (useJoystick && yawAxis != "" ?  yawAxisFactor * Input.GetAxis(yawAxis) : 0) +
-            ((useMouse && Cursor.lockState == CursorLockMode.Locked && yawMouse != "") ? yawMouseFactor * Input.GetAxis(yawMouse) : 0) +
-            (useMobile ? yawMobileFactor * DroneInputMobile.yawInput : 0)
-            ,
-            (useKeyboard ? rollKeyFactor * ((Input.GetKey(rollLeft) ? 1 : 0) - (Input.GetKey(rollRight) ? 1 : 0)) : 0) +
-            (useJoystick && rollAxis != "" ? rollAxisFactor  * -Input.GetAxis(rollAxis) : 0) +
-            ((useMouse && Cursor.lockState == CursorLockMode.Locked && rollMouse != "") ? rollMouseFactor * -Input.GetAxis(rollMouse) : 0) +
-            (useMobile ? rollMobileFactor * -DroneInputMobile.rollInput : 0)
-            );
+        inputTorque = new Vector3(InputManager.Cyclic.y, InputManager.Pedals, -InputManager.Cyclic.x);
+        
+        inputForce = new Vector3(0, InputManager.Throttle, 0);
         //
-        if (BiDirThrottle)
-        {
-            inputForce = new Vector3
-                (
-                (useKeyboard ? thrustLateralKeyFactor * ((Input.GetKey(thrustRight) ? 1 : 0) - (Input.GetKey(thrustLeft) ? 1 : 0)) : 0) +
-                (useJoystick && thrustLateralAxis != "" ? thrustLateralAxisFactor * Input.GetAxis(thrustLateralAxis) : 0) +
-                ((useMouse && Cursor.lockState == CursorLockMode.Locked && thrustLateralMouse != "") ? thrustLateralMouseFactor * Input.GetAxis(thrustLateralMouse) : 0) +
-                (useMobile ? thrustLateralMobileFactor * DroneInputMobile.thrustLateralInput : 0)
-                ,
-                (useKeyboard ? throttleKeyFactor * ((Input.GetKey(throttleUp) ? 1 : 0) - (Input.GetKey(throttleDown) ? 1 : 0)) : 0) +
-                (useJoystick && throttleAxis != "" ? throttleAxisFactor * -Input.GetAxis(throttleAxis) : 0) +
-                ((useMouse && Cursor.lockState == CursorLockMode.Locked && throttleMouse != "") ? throttleMouseFactor * -Input.GetAxis(throttleMouse) : 0) +
-                (useMobile ? throttleMobileFactor * DroneInputMobile.throttleInput : 0)
-                ,
-                (useKeyboard ? thrustForwardKeyFactor * ((Input.GetKey(thrustForward) ? 1 : 0) - (Input.GetKey(thrustBackward) ? 1 : 0)) : 0) +
-                (useJoystick && thrustForwardAxis != "" ? thrustForwardAxisFactor * Input.GetAxis(thrustForwardAxis) : 0) +
-                ((useMouse && Cursor.lockState == CursorLockMode.Locked && thrustForwardMouse != "") ? thrustForwardMouseFactor * Input.GetAxis(thrustForwardMouse) : 0) +
-                (useMobile ? thrustForwardMobileFactor * DroneInputMobile.thrustForwardInput : 0)
-            );
-        }
-        else
-        {
-            inputForce = new Vector3
-                (
-                (useKeyboard ? thrustLateralKeyFactor * ((Input.GetKey(thrustRight) ? 1 : 0) - (Input.GetKey(thrustLeft) ? 1 : 0)) : 0) +
-                (useJoystick && thrustLateralAxis != "" ? thrustLateralAxisFactor * Input.GetAxis(thrustLateralAxis) : 0) +
-                ((useMouse && Cursor.lockState == CursorLockMode.Locked && thrustLateralMouse != "") ? thrustLateralMouseFactor * Input.GetAxis(thrustLateralMouse) : 0) +
-                (useMobile ? thrustLateralMobileFactor * DroneInputMobile.thrustLateralInput : 0)
-                ,
-                (useKeyboard ? throttleKeyFactor * ((Input.GetKey(throttleUp) ? 1 : 0)) : 0) +
-                (useJoystick && throttleAxis != "" ? throttleAxisFactor * (-Input.GetAxis(throttleAxis) + 1f) / 2f : 0) +
-                ((useMouse && Cursor.lockState == CursorLockMode.Locked && throttleMouse != "") ? throttleMouseFactor * (-Input.GetAxis(throttleMouse) + 1f) / 2f : 0) +
-                (useMobile ? throttleMobileFactor * (DroneInputMobile.throttleInput + 1f) / 2f : 0)
-                ,
-                (useKeyboard ? thrustForwardKeyFactor * ((Input.GetKey(thrustForward) ? 1 : 0) - (Input.GetKey(thrustBackward) ? 1 : 0)) : 0) +
-                (useJoystick && thrustForwardAxis != "" ? thrustForwardAxisFactor * Input.GetAxis(thrustForwardAxis) : 0) +
-                ((useMouse && Cursor.lockState == CursorLockMode.Locked && thrustForwardMouse != "") ? thrustForwardMouseFactor * Input.GetAxis(thrustForwardMouse) : 0) +
-                (useMobile ? thrustForwardMobileFactor * DroneInputMobile.thrustForwardInput : 0)
-            );
-            //
-            if (useKeyboard && Input.GetKey(throttleDown)) inputForce = new Vector3(inputForce.x, 0f, inputForce.z);
-        }
         //
         ////////////////////////
 

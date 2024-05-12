@@ -58,8 +58,6 @@ namespace Drone.Scripts.GamePlay
                     _input.currentActionMap = _input.actions.FindActionMap(_actionMap.ToString());
                     timer = 0;
                     OnActionMapSwitch?.Invoke(_actionMap);
-                    
-                    
                 }
             }
         }
