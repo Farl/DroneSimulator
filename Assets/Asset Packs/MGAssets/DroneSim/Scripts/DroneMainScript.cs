@@ -119,6 +119,8 @@ public class DroneMainScript : MonoBehaviour
     int cameraIndex = 0, camNull = 0;
 
     [Space]
+    [Header("Drone sounds settings")]
+    public AudioSource EngineAS;
     public AudioClip touchSND;
     public AudioClip hitSND, damageSND;
     public string touchMSG = "Touch", hitMSG = "Hit!", damageMSG = "Propeller Damage!";
@@ -145,6 +147,8 @@ public class DroneMainScript : MonoBehaviour
     {
         if (rigidBody == null) rigidBody = GetComponent<Rigidbody>();
         //if (rigidBody != null) rigidBody.maxAngularVelocity = 7f; //raise default value here if necessary
+
+        droneHUD = FindObjectOfType<DroneHUD>();
 
         if (droneHUD != null && droneHUD.autoFuel)
         {

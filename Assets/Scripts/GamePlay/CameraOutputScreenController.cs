@@ -8,6 +8,7 @@ public class CameraOutputScreenController : MonoBehaviour
     [SerializeField] private GameObject screenGameObject;
 
     [SerializeField] private GameObject cameraFrameGameObject;
+    [SerializeField] private GameObject droneHUDGameObject;
 
     private InputManager _inputManager;
     
@@ -24,10 +25,12 @@ public class CameraOutputScreenController : MonoBehaviour
         if (map == ActionMap.Camera)
         {
             cameraFrameGameObject.SetActive(true);
+            droneHUDGameObject.SetActive(false);
         }
         else
         {
             cameraFrameGameObject.SetActive(false);
+            droneHUDGameObject.SetActive(true);
         }
     }
 }

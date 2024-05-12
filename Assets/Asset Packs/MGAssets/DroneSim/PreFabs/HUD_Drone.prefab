@@ -11114,7 +11114,7 @@ GameObject:
   - component: {fileID: 6903110714848699380}
   - component: {fileID: 6903110714848699383}
   m_Layer: 5
-  m_Name: __HUD_Canvas__
+  m_Name: HUD_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

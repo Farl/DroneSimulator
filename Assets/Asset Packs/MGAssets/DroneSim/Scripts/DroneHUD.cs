@@ -10,8 +10,8 @@ public class DroneHUD : MonoBehaviour
     [Header("Config References")]
     public bool isActive = false;
 
-    [Tooltip("Link your Drone Transform here!")] public Transform aircraft;
-    [Tooltip("If your Drone have a RigidBody, link it here!")] public Rigidbody aircraftRB;
+    [Tooltip("Link your Drone Transform here!")] private Transform aircraft;
+    [Tooltip("If your Drone have a RigidBody, link it here!")] private Rigidbody aircraftRB;
 
 
     [Space]
@@ -263,6 +263,11 @@ public class DroneHUD : MonoBehaviour
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////// Inicialization
     void Awake()
     {
+        var drone = FindObjectOfType<DroneMainScript>();
+        aircraft = drone.transform;
+        aircraftRB = drone.GetComponent<Rigidbody>();
+        EngineAS = drone.EngineAS;
+        
         if (current == null) current = this;
         if (mainPanel == null) mainPanel = GetComponent<RectTransform>();
         if (aircraft == null && aircraftRB == null) aircraft = Camera.main.transform;   //If there is no reference set, then it gets the MainCamera
@@ -707,7 +712,7 @@ public class DroneHUD : MonoBehaviour
             if (EngineAS != null && EngineAS.isActiveAndEnabled)
             {
                 if (!EngineAS.isPlaying && engineTarget > 0) EngineAS.Play();
-
+                
                 if (engineReNormalized > 0.01f) EngineAS.pitch = Mathf.Lerp(minPitch, maxPitch, engineReNormalized);
                 else { EngineAS.Stop(); EngineAS.pitch = 1; }
             }

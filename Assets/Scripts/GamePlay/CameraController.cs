@@ -51,7 +51,7 @@ namespace Drone.Scripts.GamePlay
 
         private void UpdateRotation()
         {
-            var hAngel = transform.rotation.eulerAngles.y 
+            var hAngel = transform.localRotation.eulerAngles.y 
                          + (horizontalSpeed * _inputManager.RightLeftRotation * Time.deltaTime);
 
             hAngel = hAngel > 180 ? hAngel - 360 : hAngel;
@@ -65,7 +65,7 @@ namespace Drone.Scripts.GamePlay
                 hAngel = maxHorizontalAngel;
             }
             
-            var vAngel = transform.rotation.eulerAngles.x 
+            var vAngel = transform.localRotation.eulerAngles.x 
                          + (verticalSpeed * _inputManager.UpDownRotation * Time.deltaTime * -1);
 
             vAngel = vAngel > 180 ? vAngel - 360 : vAngel;
@@ -79,7 +79,7 @@ namespace Drone.Scripts.GamePlay
                 vAngel = maxVerticalAngel;
             }
             
-            transform.rotation = Quaternion.Euler(vAngel, hAngel, 0);
+            transform.localRotation = Quaternion.Euler(vAngel, hAngel, 0);
         }
 
         private void UpdateZoom()
