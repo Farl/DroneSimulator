@@ -1,5 +1,6 @@
 ﻿using Drone.Scripts.GamePlay;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DroneMainScript : MonoBehaviour
 {
