@@ -3979,7 +3979,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5007674902857560625}
   - component: {fileID: 6678751244266762500}
-  - component: {fileID: 6664591987881210424}
   m_Layer: 0
   m_Name: RC_Controller
   m_TagString: Untagged
@@ -4021,19 +4020,6 @@ MonoBehaviour:
   stickRotationAngel: 30
   leftStick: {fileID: 5007674902857560604}
   rightStick: {fileID: 5007674902857560765}
---- !u!114 &6664591987881210424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5007674902857561279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c12bff8857c0c4ba417d9865b11a1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightText: {fileID: 7340386224696775390}
 --- !u!1 &5007674902857561321
 GameObject:
   m_ObjectHideFlags: 0

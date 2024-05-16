@@ -33,10 +33,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Switch",
+                    "name": "RightButton",
                     "type": "Value",
                     "id": "aad2d8e2-fca9-4aed-b524-9df730287076",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftButton",
+                    "type": "Value",
+                    "id": "25da361e-52ae-4755-b5d7-5a88bb791578",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -321,11 +330,11 @@
                 {
                     "name": "",
                     "id": "f1ab631a-1c20-4127-9f2a-355bd30ab38e",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch",
+                    "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -336,7 +345,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch",
+                    "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -347,7 +356,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5cd5b16a-7ecc-4e1e-adb1-917d4ce3c765",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "deb42736-4011-4e96-9d7a-bde7e1bd53d6",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13b30d62-3165-485d-9510-03e3d971b01e",
+                    "path": "<ViveController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -385,7 +427,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Switch",
+                    "name": "RightButton",
                     "type": "Value",
                     "id": "7c2ddba6-f1c8-43eb-b1ac-9183c319f46f",
                     "expectedControlType": "Button",
@@ -629,11 +671,11 @@
                 {
                     "name": "",
                     "id": "7188a166-764c-4990-affa-b1e77b9240f0",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch",
+                    "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -644,7 +686,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch",
+                    "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -655,7 +697,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch",
+                    "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

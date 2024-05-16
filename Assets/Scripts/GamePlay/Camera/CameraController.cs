@@ -23,9 +23,11 @@ namespace Drone.Scripts.GamePlay
 
         [SerializeField] private Camera _camera;
 
+        private float _timer;
+
         private void Start()
         {
-            _inputManager = GameObject.FindGameObjectWithTag("Input").GetComponent<InputManager>();
+            _inputManager = InputManager.instance;
 
             _inputManager.OnActionMapSwitch += map =>
             {
@@ -34,10 +36,14 @@ namespace Drone.Scripts.GamePlay
                     transform.DOLocalRotate(Vector3.zero, 1f);
                 }
             };
+
+            _timer = 0;
         }
 
         private void Update()
         {
+            CheckStateButtons();
+            
             if(_inputManager.ActionMap != ActionMap.Camera)
                 return;
             ProcessCameraRotations();
@@ -93,6 +99,19 @@ namespace Drone.Scripts.GamePlay
             _camera.fieldOfView = fov;
         }
 
-        
+        private void CheckStateButtons()
+        {
+            if (_inputManager.RightButton == 1
+                && _inputManager.LeftButton == 0
+               )
+            {
+                _timer += Time.deltaTime;
+                if (_timer >= 1.0f)
+                {
+                    _inputManager.SwitchActionMap();
+                    _timer = 0;
+                }
+            }
+        }
     }
 }

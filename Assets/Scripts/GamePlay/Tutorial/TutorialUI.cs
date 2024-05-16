@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialUI : MonoBehaviour
 {
     public Action TutorialEnded;
     [SerializeField] private TMP_Text tutorialText;

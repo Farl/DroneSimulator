@@ -13,6 +13,8 @@ namespace Drone.Scripts.GamePlay
     public class InputManager : MonoBehaviour
     {
         #region Variables
+
+        public static InputManager instance;
         
         public ActionMap ActionMap => _actionMap;
 
@@ -21,7 +23,8 @@ namespace Drone.Scripts.GamePlay
         public Vector2 Cyclic => _cyclic;
         public float Pedals => _pedals;
         public float Throttle => _throttle;
-        public float Switch => _switch;
+        public float RightButton => _rightButton;
+        public float LeftButton => _leftButton;
         public float RightLeftRotation => _rightLeftRotation;
         public float UpDownRotation => _upDownRotation;
         public float Zoom => _zoom;
@@ -29,7 +32,8 @@ namespace Drone.Scripts.GamePlay
         private Vector2 _cyclic;
         private float _pedals;
         private float _throttle;
-        private float _switch;
+        private float _rightButton;
+        private float _leftButton;
         private float _rightLeftRotation;
         private float _upDownRotation;
         private float _zoom;
@@ -44,22 +48,14 @@ namespace Drone.Scripts.GamePlay
 
         private void Awake()
         {
-            _input = GetComponent<PlayerInput>();
-        }
-
-        void Update()
-        {
-            if (_switch == 1)           //switching control modes
+            if (instance == null)
             {
-                timer += Time.deltaTime;
-                if (timer >= 1.0f)
-                {
-                    _actionMap = _actionMap == ActionMap.Drone ? ActionMap.Camera : ActionMap.Drone;
-                    _input.currentActionMap = _input.actions.FindActionMap(_actionMap.ToString());
-                    timer = 0;
-                    OnActionMapSwitch?.Invoke(_actionMap);
-                }
+                instance = this;
+                _input = GetComponent<PlayerInput>();
+                return;
             }
+            
+            Destroy(this);
         }
 
         #endregion
@@ -69,7 +65,6 @@ namespace Drone.Scripts.GamePlay
         private void OnCyclic(InputValue value)
         {
             _cyclic = value.Get<Vector2>();
-            
         }
 
         private void OnPedals(InputValue value)
@@ -82,9 +77,14 @@ namespace Drone.Scripts.GamePlay
             _throttle = value.Get<float>();
         }
 
-        private void OnSwitch(InputValue value)
+        private void OnRightButton(InputValue value)
         {
-            _switch = value.Get<float>();
+            _rightButton = value.Get<float>();
+        }
+        
+        private void OnLeftButton(InputValue value)
+        {
+            _leftButton = value.Get<float>();
         }
 
         private void OnRightLeftRotation(InputValue value)
@@ -101,6 +101,17 @@ namespace Drone.Scripts.GamePlay
         {
             _zoom = value.Get<float>();
         }
+        #endregion
+
+        #region Custom Methods
+
+        public void SwitchActionMap()
+        {
+            _actionMap = _actionMap == ActionMap.Drone ? ActionMap.Camera : ActionMap.Drone;
+            _input.currentActionMap = _input.actions.FindActionMap(_actionMap.ToString());
+            OnActionMapSwitch?.Invoke(_actionMap);
+        }
+
         #endregion
     }
 }
