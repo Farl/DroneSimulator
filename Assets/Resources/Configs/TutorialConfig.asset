@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   Phrases:
-  - Go up to the height 30 meters
-  - Find green object and rech it
-  - Find next point. Reached 1/7
-  - Find next point. Reached 2/7
-  - Find next point. Reached 3/7
-  - Find next point. Reached 4/7
-  - Find next point. Reached 5/7
-  - Find next point. Reached 6/7
-  - You reached last point. Ground at the landing spot.
+  - Activate drone engines
+  - Go up to the height 20 meters
+  - Move drone to the side
+  - Change course of drone
+  - Reach green point. Reached 0/7.
+  - Reach next point. Reached 1/7
+  - Reach next point. Reached 2/7
+  - Reach next point. Reached 3/7
+  - Reach next point. Reached 4/7
+  - Reach next point. Reached 5/7
+  - Reach next point. Reached 6/7
+  - You reached the last point. Land your drone at start spot
+  - Deactivate your engines

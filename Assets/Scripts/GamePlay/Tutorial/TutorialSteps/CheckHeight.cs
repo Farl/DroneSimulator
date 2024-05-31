@@ -9,12 +9,11 @@ namespace Drone.Scripts.GamePlay.Tutorial
         
         public override void EnterStep()
         {
-            
         }
 
         public override void UpdateState()
         {
-            if(drone.groundHeight > height)
+            if(drone.transform.position.y > height)
                 TutorialController.instance.GoNext();
         }
 

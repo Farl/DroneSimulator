@@ -27,6 +27,11 @@ namespace Drone.Scripts.GamePlay.Tutorial
         public override void ExitStep()
         {
             drone.enabled = false;
+            drone.EngineAS.enabled = false;
+            foreach (var propeller in drone.propellers)
+            {
+                propeller.enabled = false;
+            }
         }
     }
 }

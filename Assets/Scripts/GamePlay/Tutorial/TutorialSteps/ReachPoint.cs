@@ -5,20 +5,22 @@ namespace Drone.Scripts.GamePlay.Tutorial
 {
     public class ReachPoint : TutorialStepAbstract
     {
-        [SerializeField] private GameObject pointGameObject;
+        [SerializeField] private GameObject pointBody;
+        [SerializeField] private Collider collider;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.parent.GetComponent<DroneMainScript>()
-                || other.GetComponent<DroneMainScript>())
+            if (other.gameObject.layer == GameConstData.DroneGameObjectlayer)
             {
+                collider.enabled = false;
+                pointBody.SetActive(false);
                 TutorialController.instance.GoNext();
             }
         }
 
         public override void EnterStep()
         {
-            pointGameObject.SetActive(true);
+            pointBody.SetActive(true);
         }
 
         public override void UpdateState()
@@ -28,7 +30,7 @@ namespace Drone.Scripts.GamePlay.Tutorial
 
         public override void ExitStep()
         {
-            pointGameObject.SetActive(false);
+            
         }
     }
 }

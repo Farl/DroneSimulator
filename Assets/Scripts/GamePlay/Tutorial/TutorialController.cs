@@ -11,6 +11,8 @@ public class TutorialController : MonoBehaviour
     public static TutorialController instance;
 
     public Action TutorialIsOver;
+
+    [SerializeField] private TutorialUI tutorialUI;
     
     private List<TutorialStepAbstract> _steps = new List<TutorialStepAbstract>();
     private TutorialStepAbstract _currentStepObject;
@@ -47,10 +49,12 @@ public class TutorialController : MonoBehaviour
         {
             _currentStepObject = _steps[_currentTutorialID];
             _currentStepObject.EnterStep();
+            tutorialUI.GoNext();
         }
         else
         {
             TutorialIsOver?.Invoke();
+            tutorialUI.GoNext();
         }
     }
 

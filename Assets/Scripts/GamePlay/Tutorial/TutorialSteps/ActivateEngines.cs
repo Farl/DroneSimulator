@@ -12,8 +12,11 @@ namespace Drone.Scripts.GamePlay.Tutorial
 
         public override void EnterStep()
         {
-            if (drone.enabled)
-                drone.enabled = false;
+            drone.enabled = false;
+            foreach (var propeller in drone.propellers)
+            {
+                propeller.enabled = false;
+            }
         }
 
         public override void UpdateState()
@@ -23,6 +26,7 @@ namespace Drone.Scripts.GamePlay.Tutorial
                 _timer += Time.deltaTime;
                 if (_timer > 1)
                 {
+                    _timer = 0;
                     TutorialController.instance.GoNext();
                 }
             }
@@ -31,6 +35,10 @@ namespace Drone.Scripts.GamePlay.Tutorial
         public override void ExitStep()
         {
             drone.enabled = true;
+            foreach (var propeller in drone.propellers)
+            {
+                propeller.enabled = true;
+            }
         }
     }
 }

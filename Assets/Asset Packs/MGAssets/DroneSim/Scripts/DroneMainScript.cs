@@ -559,6 +559,8 @@ public class DroneMainScript : MonoBehaviour
 
         if (!isBlocked && other != null && other.gameObject != this.gameObject && other.transform.parent != this.transform)
         {
+            if(other.GetComponent<Rigidbody>() == null)
+                return;
             isBlocked = true;
             if (recoverFlashImgBut != null) recoverFlashImgBut.flash();
 
@@ -570,6 +572,7 @@ public class DroneMainScript : MonoBehaviour
 
             rigidBody.AddForceAtPosition( rigidBody.mass * Physics.gravity.magnitude * -rigidBody.velocity/5f, transform.position, ForceMode.Impulse);
             rigidBody.AddRelativeTorque(rigidBody.mass * Physics.gravity.magnitude * -rigidBody.velocity/2f, ForceMode.Impulse);
+        
         }
     }
     //
