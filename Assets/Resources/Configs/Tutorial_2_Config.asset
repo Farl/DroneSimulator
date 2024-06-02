@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f216a100110d424408ab0d9fec7a948e, type: 3}
-  m_Name: TutorialConfig
+  m_Name: Tutorial_2_Config
   m_EditorClassIdentifier: 
   Phrases:
   - Activate drone engines
   - Go up to the height 20 meters
-  - Move drone to the side
-  - Change course of drone
-  - Reach green point. Reached 0/6.
-  - Reach next point. Reached 1/6
-  - Reach next point. Reached 2/6
-  - Reach next point. Reached 3/6
-  - Reach next point. Reached 4/6
-  - Reach next point. Reached 5/6
-  - You reached the last point. Land your drone at start spot
-  - Deactivate your engines
+  - Move drone to the green point
+  - Hold right button to turn on stabilization mode
+  - Use left stick to move camera
+  - Use right stick to zoom camera image
+  - Click right button to take a photo. Find and take photo of injured power line
+  - Hold right button to turn off stabilization mode
+  - Land your drone to the start spot
+  - Deactivate drone engines

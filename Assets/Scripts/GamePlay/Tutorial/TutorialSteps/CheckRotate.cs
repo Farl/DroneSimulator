@@ -15,7 +15,7 @@ namespace Drone.Scripts.GamePlay.Tutorial
 
         public override void UpdateState()
         {
-            if (InputManager.instance.Pedals == 1)
+            if (Mathf.Abs(InputManager.instance.Pedals) > 0.1)
             {
                 _timer += Time.deltaTime;
 

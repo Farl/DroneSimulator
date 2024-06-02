@@ -6,8 +6,7 @@ namespace Drone.Scripts.GamePlay
 {
     public class CameraController : MonoBehaviour
     {
-        private InputManager _inputManager;
-        
+        public Action OnTakePhoto;
         [Header("Rotation Angels")]
         [SerializeField] private float minHorizontalAngel;
         [SerializeField] private float maxHorizontalAngel;
@@ -22,12 +21,17 @@ namespace Drone.Scripts.GamePlay
         [SerializeField] private float zoomSpeed;
 
         [SerializeField] private Camera _camera;
+        [SerializeField] private AudioSource _audioSource;
 
+        private InputManager _inputManager;
         private float _timer;
+        private float _pressTime;
+        private bool btnPressed;
 
         private void Start()
         {
             _inputManager = InputManager.instance;
+            btnPressed = false;
 
             _inputManager.OnActionMapSwitch += map =>
             {
@@ -105,10 +109,31 @@ namespace Drone.Scripts.GamePlay
                 && _inputManager.LeftButton == 0
                )
             {
+                if (btnPressed == false)
+                {
+                    btnPressed = true;
+                    _pressTime = Time.time;
+                }
                 _timer += Time.deltaTime;
-                if (_timer >= 1.0f)
+                if (_timer >= 2.0f)
                 {
                     _inputManager.SwitchActionMap();
+                    _timer = 0;
+                }
+            }
+
+            if (_inputManager.RightButton == 0
+                && _inputManager.LeftButton == 0)
+            {
+                if (btnPressed == true)
+                {
+                    btnPressed = false;
+                    if (Time.time - _pressTime < 0.2f)
+                    {
+                        Debug.Log("Take Photo");
+                        _audioSource.Play();
+                        OnTakePhoto?.Invoke();
+                    }
                     _timer = 0;
                 }
             }

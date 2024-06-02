@@ -2,7 +2,7 @@
 
 namespace Drone.Scripts.GamePlay.Tutorial
 {
-    public class CheckLeftStick : TutorialStepAbstract
+    public class CheckCameraMovement : TutorialStepAbstract
     {
         [SerializeField] private float checkTime;
 
@@ -15,7 +15,8 @@ namespace Drone.Scripts.GamePlay.Tutorial
 
         public override void UpdateState()
         {
-            if (InputManager.instance.Cyclic.magnitude > 0.1f)
+            if (Mathf.Abs(InputManager.instance.UpDownRotation) > 0.1
+                || Mathf.Abs(InputManager.instance.RightLeftRotation) > 0.1)
             {
                 _timer += Time.deltaTime;
 
