@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d60383930d46a4b19fccba9f9eec73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: SampleScene 1
+  sceneName: SampleScene 2
   sceneDescription: Learn basics of photographing with drone
   window: {fileID: 2079309554}
 --- !u!114 &1200731378

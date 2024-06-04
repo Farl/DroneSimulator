@@ -12,8 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/SampleScene 1.unity
+    path: Assets/Scenes/OldScene.unity
     guid: d5c237d82c8a63748b459ceb248f41b1
+  - enabled: 1
+    path: Assets/Scenes/SampleScene 2.unity
+    guid: 038bda077aecf1444a8b28d22f28d059
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e883bffd7b9cc854f9763f6d86792d80, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: cdc085442e1aa4b4498c0b552991f38a, type: 2}
