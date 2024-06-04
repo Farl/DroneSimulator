@@ -559,7 +559,7 @@ public class DroneMainScript : MonoBehaviour
 
         if (!isBlocked && other != null && other.gameObject != this.gameObject && other.transform.parent != this.transform)
         {
-            if(other.GetComponent<Rigidbody>() == null)
+            if(other.GetComponent<Rigidbody>() == null || other.tag == "Ignore")
                 return;
             isBlocked = true;
             if (recoverFlashImgBut != null) recoverFlashImgBut.flash();
