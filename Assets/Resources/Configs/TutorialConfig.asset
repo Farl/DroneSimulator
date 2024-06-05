@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   Phrases:
-  - Activate drone engines
-  - Go up to the height 20 meters
-  - Move drone to the side
-  - Change course of drone
+  - Hold left trigger / button to activate drone engines
+  - Use right stick to change throttle.Go up to the height 20 meters
+  - Use left stick to move horizontally.Move drone to the side
+  - Use right stick to rotate drone.Change course of drone
   - Reach green point. Reached 0/6.
   - Reach next point. Reached 1/6
   - Reach next point. Reached 2/6
@@ -24,4 +24,4 @@ MonoBehaviour:
   - Reach next point. Reached 4/6
   - Reach next point. Reached 5/6
   - You reached the last point. Land your drone at start spot
-  - Deactivate your engines
+  - Hold left trigger / buttonDeactivate your engines

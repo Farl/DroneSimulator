@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Tutorial_2_Config
   m_EditorClassIdentifier: 
   Phrases:
-  - Activate drone engines
+  - Hold left trigger / button to activate drone engines
   - Go up to the height 20 meters
   - Move drone to the green point
-  - Hold right button to turn on stabilization mode
+  - Hold right trigger /  button to turn on stabilization mode
   - Use left stick to move camera
   - Use right stick to zoom camera image
-  - Click right button to take a photo. Find and take photo of injured power line
-  - Hold right button to turn off stabilization mode
+  - Click right trigger /  button to take a photo. Find and take photo of injured
+    power line
+  - Hold right trigger / button to turn off stabilization mode
   - Land your drone to the start spot
-  - Deactivate drone engines
+  - Hold left trigger / button to deactivate drone engines
