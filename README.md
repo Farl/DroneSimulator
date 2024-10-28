@@ -1,5 +1,5 @@
 # DroneSim
-Demo of virtual reality simulator for training skills of piloting of unmanned aerial vehicles. Developed with Unity.
+Demo of virtual reality simulator for training skills of piloting of unmanned aerial vehicles. Developed with Unity. This project is not finished yet.
 Description:
 - customizable realistic physical model of drone behavior
 - several training scenarios (managing, photographing, FPV-drones)
