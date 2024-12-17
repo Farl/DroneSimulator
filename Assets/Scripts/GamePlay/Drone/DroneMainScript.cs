@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//пока в таком виде, потом отрефакторить
 public class DroneMainScript : MonoBehaviour
 {
     public static DroneMainScript current;
