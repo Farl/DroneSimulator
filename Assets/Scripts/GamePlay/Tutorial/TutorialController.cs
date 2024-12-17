@@ -6,6 +6,7 @@ using System.Linq;
 using Drone.Scripts.GamePlay.Tutorial;
 using UnityEngine;
 
+//todo: переделать, поменять стейты, чтоы было удобнее с ними работать
 public class TutorialController : MonoBehaviour
 {
     public static TutorialController instance;
