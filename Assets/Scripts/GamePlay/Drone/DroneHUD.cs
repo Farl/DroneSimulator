@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+//пока отсавим так потом отрефакторим
 public class DroneHUD : MonoBehaviour
 {
     public static DroneHUD current;
