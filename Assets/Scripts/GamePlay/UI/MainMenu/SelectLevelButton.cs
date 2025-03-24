@@ -17,7 +17,8 @@ namespace Drone.Scripts.GamePlay
 
         public void OnClickButton()
         {
-            SceneManager.LoadScene(sceneName);
+            //SceneManager.LoadScene(sceneName);
+            SafeLoadLevel.LoadLevel(sceneName);
         }
 
         public void OnPointerEnter(PointerEventData eventData)

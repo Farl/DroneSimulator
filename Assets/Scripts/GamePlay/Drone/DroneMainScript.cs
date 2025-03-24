@@ -1,6 +1,9 @@
 ﻿using Drone.Scripts.GamePlay;
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
+#else
+#endif
 
 //пока в таком виде, потом отрефакторить
 public class DroneMainScript : MonoBehaviour
@@ -95,6 +98,7 @@ public class DroneMainScript : MonoBehaviour
     [Header("Input Settings")]
     public bool useKeyboard = true;
     public KeyCode toogleCursorKey = KeyCode.Tab, recoverKey = KeyCode.Space, modeKey = KeyCode.Backspace, cameraKey = KeyCode.C;
+    public InputActionReference toggleCursorAction, recoverAction, modeAction, cameraAction;
     
     [Space]
     public bool useMobile = true;
@@ -105,6 +109,7 @@ public class DroneMainScript : MonoBehaviour
     [Space]
     public bool useJoystick = true;
     public KeyCode recoverJoystick = KeyCode.Joystick1Button1, modeJoystick = KeyCode.Joystick1Button2, cameraJoystick = KeyCode.Joystick1Button3;
+    public InputActionReference recoverJoystickAction, modeJoystickAction, cameraJoystickAction;
     ////
 
 
@@ -177,13 +182,19 @@ public class DroneMainScript : MonoBehaviour
     public void detectControls()
     {
         if (SystemInfo.deviceType == DeviceType.Handheld || forceMobile) useMobile = true; else useMobile = false;
+        
         if (mobileInput != null) mobileInput.gameObject.SetActive(useMobile); else useMobile = false;
 
+#if ENABLE_INPUT_SYSTEM
+        if (Gamepad.all.Count > 0 && Gamepad.all[0].deviceId != 0) useJoystick = true;
+        else useJoystick = false;
+#else
         if (Input.GetJoystickNames().Length > 0 && Input.GetJoystickNames().GetValue(0).ToString() != "" ) useJoystick = true;
         else useJoystick = false;
 
         //print(Input.GetJoystickNames().Length);
         //foreach (string i in Input.GetJoystickNames()) print(i);
+#endif
     }
     //////////////////
 
@@ -357,7 +368,33 @@ public class DroneMainScript : MonoBehaviour
         //Return if control is not activated
         if (!isActive) return;
 
+#if ENABLE_INPUT_SYSTEM
+        // Implement by Input System (New)
+        //Cursor lock-unlock with Tab key
+        if (toggleCursorAction && toggleCursorAction.action.WasPressedThisFrame())
+        {
+            if (Cursor.lockState != CursorLockMode.Locked) { Cursor.lockState = CursorLockMode.Locked; Cursor.visible = false; }
+            else { Cursor.lockState = CursorLockMode.None; Cursor.visible = true; }
 
+            SndPlayer.playClick();
+        }
+
+        //Recover Aircraft Attitude
+        if (useKeyboard && recoverAction && recoverAction.action.WasPressedThisFrame()) recoverAttitude();
+        if (useJoystick && recoverAction && recoverAction.action.WasPressedThisFrame()) recoverAttitude();
+        //
+
+        //Switch from Manual/FlyByWire Mode
+        if (useKeyboard && modeAction && modeAction.action.WasPressedThisFrame()) toogleArcade();
+        if (useJoystick && modeAction && modeAction.action.WasPressedThisFrame()) toogleArcade();
+        //
+
+        //Switch from FPV Camera and External
+        if (useKeyboard && cameraAction && cameraAction.action.WasPressedThisFrame()) changeCamera();
+        if (useJoystick && cameraAction && cameraAction.action.WasPressedThisFrame()) changeCamera();
+        //
+
+#else
         //Cursor lock-unlock with Tab key
         if (Input.GetKeyDown(toogleCursorKey))
         {
@@ -382,8 +419,7 @@ public class DroneMainScript : MonoBehaviour
         if (useKeyboard && Input.GetKeyDown(cameraKey)) changeCamera();
         if (useJoystick && Input.GetKeyDown(cameraJoystick)) changeCamera();
         //
-
-
+#endif
 
         // Verify if Drone is Grounded using a RayCast below
         RaycastHit hit;

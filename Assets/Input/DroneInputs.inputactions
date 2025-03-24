@@ -174,6 +174,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "92e661b5-02ac-4b5c-80b6-1a64fdd03adc",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cyclic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Arrows",
                     "id": "ca947cc2-4a58-48bc-a726-c022a9f9ad20",
                     "path": "1DAxis",
@@ -243,6 +254,17 @@
                     "name": "",
                     "id": "e1886304-04c3-4fd5-804e-cd6c786c31ec",
                     "path": "<ViveController>{RightHand}/trackpad/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pedals",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "945a8641-12ee-4c91-992a-2f9e4c8cd3d7",
+                    "path": "<XRController>{RightHand}/primary2DAxis/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -329,6 +351,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5ac3cb13-b83e-4cd1-a280-3040993e4a86",
+                    "path": "<XRController>{RightHand}/primary2DAxis/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f1ab631a-1c20-4127-9f2a-355bd30ab38e",
                     "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
@@ -362,6 +395,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4bae6acb-4425-40f7-978b-13b392f2866b",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5cd5b16a-7ecc-4e1e-adb1-917d4ce3c765",
                     "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
@@ -386,6 +430,17 @@
                     "name": "",
                     "id": "13b30d62-3165-485d-9510-03e3d971b01e",
                     "path": "<ViveController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70ac682a-6ddc-4fc5-8608-a352647960e7",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -506,7 +561,18 @@
                 {
                     "name": "",
                     "id": "6d744287-40a7-45db-9aa1-9e56c428617a",
-                    "path": "<ViveController>{LeftHand}/trackpad/x",
+                    "path": "<XRController>{LeftHand}/primary2DAxis/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightLeftRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b13e85b-3c63-40cb-a52f-95d1d30428e1",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -584,6 +650,17 @@
                     "name": "",
                     "id": "1a538ee2-3e74-4b9c-9256-3d20e5057fa0",
                     "path": "<ViveController>{LeftHand}/trackpad/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpDownRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bea3af6-0c6e-456d-826c-6dc52a423cb8",
+                    "path": "<XRController>{LeftHand}/primary2DAxis/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -670,6 +747,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3b885a22-9e59-4cb7-9293-0331ed94b197",
+                    "path": "<XRController>{RightHand}/primary2DAxis/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7188a166-764c-4990-affa-b1e77b9240f0",
                     "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
@@ -700,6 +788,78 @@
                     "action": "RightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56c7c88a-cb32-4fbe-9bcc-8b803e15c879",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "System",
+            "id": "38b21de8-17fc-4d7c-b765-ebc3a4fa1bbb",
+            "actions": [
+                {
+                    "name": "Back to MainMenu",
+                    "type": "Button",
+                    "id": "ca6a1c6e-158c-4898-bbb1-0034cf71032e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "54e2dcfb-dfb8-4b32-a540-69a9fef80429",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back to MainMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "3e7d4df2-1a81-4c31-8ea5-3302cf3b1c08",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back to MainMenu",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "539804e9-eb58-4146-ab52-b5a994c6672d",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back to MainMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "8f785c40-d069-4b8f-8139-dc57ce63faf0",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back to MainMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

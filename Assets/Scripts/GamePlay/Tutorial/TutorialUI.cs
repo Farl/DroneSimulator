@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.InputSystem;
+
 public class TutorialUI : MonoBehaviour
 {
     public Action TutorialEnded;
@@ -12,10 +14,10 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private Image executedMark;
     [SerializeField] private GameObject finalText;
     [SerializeField] private string configName;
+    [SerializeField] private InputActionReference backToMainMenuAction;
 
     private TutorialConfig _config;
     private int _current = 0;
-    
 
     void Start()
     {
@@ -59,5 +61,14 @@ public class TutorialUI : MonoBehaviour
         seq.Append(executingMark.material.DOFade(1, duration));
         seq.Join(executedMark.material.DOFade(1, duration));
         seq.Join(tutorialText.DOFade(1, duration));
+    }
+
+    private void Update()
+    {
+        if (backToMainMenuAction && backToMainMenuAction.action.WasPressedThisFrame())
+        {
+            Debug.Log("Back to main menu");
+            SafeLoadLevel.LoadLevel("MainMenu");
+        }
     }
 }
